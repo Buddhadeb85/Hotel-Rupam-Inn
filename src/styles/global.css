@@ -1,0 +1,56 @@
+/* ===== RESET & BASE ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #c19b76;
+  --dark: #0f172a;
+  --light-dark: #1e293b;
+  --white: #fff;
+  --gray: #94a3b8;
+}
+
+body {
+  font: 16px/1.6 "Segoe UI", sans-serif; /* Shorthand for size, line-height, and family */
+  background: var(--dark);
+  color: var(--white);
+}
+
+/* ===== LAYOUT & UTILS ===== */
+.container {
+  width: min(90%, 1200px); /* Replaces width + max-width + margin: auto */
+  margin-inline: auto;
+}
+
+.section { padding: 5rem 0; }
+
+.btn {
+  padding: 10px 22px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.btn:hover { opacity: 0.8; }
+
+/* ===== MEDIA & OVERLAYS ===== */
+.image-container { position: relative; display: inline-block; }
+.main-img { width: 100%; display: block; }
+
+.watermark {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero h1 { font-size: 2rem; }
+}
+

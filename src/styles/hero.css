@@ -1,0 +1,43 @@
+.hero {
+  /* Using your design tokens */
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+              url("/images/hero.jpg") center/cover no-repeat;
+  min-height: 85vh;
+  display: grid; /* Grid is even shorter for centering single items */
+  place-items: center;
+  text-align: center;
+  position: relative; /* Necessary for the absolute watermark inside */
+  overflow: hidden;
+}
+
+.hero-content {
+  z-index: 2; /* Ensures text stays above watermark */
+}
+
+.hero h1 {
+  color: var(--white);
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: var(--gray);
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  margin-bottom: 2.5rem;
+}
+
+/* Watermark Positioning */
+.watermark {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 120px;
+  opacity: 0.3;
+  pointer-events: none;
+  filter: grayscale(1); /* Optional: makes it look more like a subtle stamp */
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: 70vh; }
+}

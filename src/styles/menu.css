@@ -1,0 +1,137 @@
+/* ===== MENU PAGE LAYOUT ===== */
+.menu-container {
+  display: flex;
+  gap: 30px;
+  padding: 60px 5%;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* Sidebar: Using CSS Variables for Dark Theme */
+.menu-sidebar {
+  position: sticky;
+  top: 100px;
+  width: 220px;
+  background: var(--light-dark);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-sidebar h4 {
+  margin-bottom: 15px;
+  color: var(--primary);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.filter-list button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  margin-bottom: 8px;
+  border: none;
+  background: transparent;
+  color: var(--gray);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.filter-list button.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.filter-list button:hover:not(.active) {
+  background: rgba(193, 155, 118, 0.1); /* Subtle primary tint */
+  color: var(--white);
+}
+
+/* ===== COLLAPSIBLE SECTIONS ===== */
+.menu-content { flex: 1; }
+
+.section-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 25px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background: var(--light-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+
+.section-header:hover {
+  background: #2d3748; /* Slightly lighter than light-dark */
+}
+
+.section-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-body.open {
+  max-height: 3000px; /* Increased for long menus */
+  padding-top: 25px;
+}
+
+/* ===== GRIDS (MENU & HOME CATEGORIES) ===== */
+.menu-grid, .home-category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Category Cards */
+.cat-card {
+  position: relative;
+  height: 220px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: var(--light-dark);
+}
+
+.cat-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.cat-card:hover img { transform: scale(1.1); }
+
+.cat-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* ===== MOBILE ADAPTATION ===== */
+@media (max-width: 768px) {
+  .menu-container {
+    flex-direction: column;
+    padding: 30px 5%;
+  }
+  
+  .menu-sidebar {
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+}

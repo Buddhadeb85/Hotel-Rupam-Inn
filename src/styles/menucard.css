@@ -1,0 +1,78 @@
+/* 1. Main Container */
+.menu-card {
+  position: relative;
+  background: blue;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2. The Watermark (Background Layer) */
+.watermark {
+  position: absolute;
+  bottom: 20px;     /* Position from bottom */
+  right: 20px;      /* Position from right */
+  width: 100px;     /* Size of watermark */
+  height: 110px;
+  opacity: 0.4;     /* This creates the "hologram" effect */
+  pointer-events: none; /* Prevents users from clicking the logo instead of the image */
+  z-index: 0;
+}
+
+/* 3. Main Item Image */
+.menu-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* 4. Content Area */
+.menu-info {
+  position: relative;
+  z-index: 2; /* Ensures text stays above the watermark */
+  padding: 15px;
+  color: white; /* Added for readability on blue background */
+}
+
+.menu-info h3 {
+  margin: 0 0 8px 0;
+}
+
+.menu-info p {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+/* 5. Bottom Row & Action */
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.price-row span {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.btn {
+  background: #ff6b35;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #e55a2b;
+}
+

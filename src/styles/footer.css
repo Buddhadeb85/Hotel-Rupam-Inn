@@ -1,0 +1,13 @@
+.footer {
+  background: var(--light-dark);
+  padding-block: 2rem; /* Shorthand for top/bottom padding */
+  text-align: center;
+  margin-top: auto; /* Pushes footer to bottom of flex containers */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer p {
+  color: var(--gray);
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}

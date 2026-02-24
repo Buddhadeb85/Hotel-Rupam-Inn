@@ -1,0 +1,79 @@
+.about-intro {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Split Section Logic */
+.split-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.split-image {
+  flex: 1;
+}
+
+.split-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.split-text {
+  flex: 1;
+}
+
+.split-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+.split-text p {
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+
+/* Stats Section */
+.about-stats {
+  background: var(--light-dark);
+  padding: 60px 0;
+  margin-top: 40px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  text-align: center;
+  gap: 30px;
+}
+
+.stat-item h3 {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+.stat-item p {
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* Responsive Mobile Fix */
+@media (max-width: 992px) {
+  .split-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .split-image img {
+    height: 300px;
+  }
+}

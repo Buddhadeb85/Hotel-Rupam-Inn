@@ -10,7 +10,7 @@ const menuData = [
   },
   {
     id: 2,
-    images: ["/images/burger1.jpg", "/images/burger2.jpg"],
+    images: ["/images/nonvegthali.jpeg", "/images/burger2.jpg"],
     name: "Classic Chicken Burger",
     description: "Grilled chicken with cheese and fresh veggies.",
     price: 249,
@@ -19,7 +19,7 @@ const menuData = [
   },
   {
     id: 3,
-    images: ["/images/thali1.jpg", "/images/thali2.jpg"],
+    images: ["/images/vegthali.jpg", /images/vegthali1.jpg, "/images/vegthali2.jpg"],
     name: "Special Veg Thali",
     description: "Paneer butter masala, dal, rice, and roti.",
     price: 350,
@@ -28,12 +28,30 @@ const menuData = [
   },
   {
     id: 4,
-    images: ["/images/mojito1.jpg", "/images/mojito2.jpg"],
+    images: ["/images/drink.jpg", "/images/drink2.jpg"],
     name: "Fresh Mojito",
     description: "Refreshing mint and lemon cooler.",
     price: 149,
     category: "Beverages",
     type: "Veg"
+  },
+  {
+    id: 5,
+    name: "Paneer Masala",
+    images: ["/images/dinner.jpg"], // Replace with paneer image when ready
+    description: "Cottage cheese cooked in rich tomato gravy.",
+    price: 170,
+    category: "Veg",
+    type: "Main Course"
+  },
+  {
+    id: 6,
+    name: "Mutton Thali",
+    images: ["/images/nonvegthali.jpeg", "/images/nonvegthali1.jpg"],
+    description: "Rassa Wati, Rassa Plate, Rice, and Bhakri.",
+    price: 270,
+    category: "Non-Veg",
+    type: "Thali Special"
   }
 ];
 

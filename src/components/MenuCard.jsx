@@ -5,34 +5,43 @@ function MenuCard({ item }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    // Logic to change image every 3 seconds
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === item.images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000);
+    // Only start interval if there is more than one image
+    if (item.images && item.images.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => 
+          prevIndex === item.images.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [item.images]);
 
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [item.images.length]);
+  // Handle cases where images might be missing in data
+  const currentImg = item.images && item.images.length > 0 
+    ? item.images[currentImageIndex] 
+    : "/images/pasta.jpg"; 
 
   return (
     <div className="menu-card">
-      <img src="/images/hril2.jpg" alt="Logo" className="watermark" />
-
-      {/* Main Item Image - Now dynamic */}
-      <img
-        src={item.images[currentImageIndex]}
-        alt={item.name}
-        className="menu-img"
-      />
+      {/* Container for the image to maintain high-quality aspect ratio */}
+      <div className="img-container">
+        <img
+          src={currentImg}
+          alt={item.name}
+          className="menu-img"
+          loading="lazy" 
+        />
+        {/* Logo Watermark moved inside img-container for better layering */}
+        <img src="/images/hril2.jpg" alt="Logo" className="watermark" />
+      </div>
 
       <div className="menu-info">
-        <div className="category-tag">{item.type}</div>
+        <span className="category-tag">{item.type || item.category}</span>
         <h3>{item.name}</h3>
         <p>{item.description}</p>
 
         <div className="price-row">
-          <span>₹{item.price}</span>
+          <span className="price-text">₹{item.price}</span>
           <button className="btn">Order</button>
         </div>
       </div>

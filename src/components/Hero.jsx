@@ -1,18 +1,27 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import "../styles/hero.css";
-// Remove global.css import from here - it's already in main.jsx!
 
 function Hero() {
+  const navigate = useNavigate();
+
   return (
-    <section className="hero"> {/* "section" class from global.css handles the padding */}
+    <section className="hero">
+      {/* Watermark Logo */}
       <img 
         src="/images/hril2.jpg" 
         alt="Logo Watermark" 
         className="watermark" 
       />
+
       <div className="container hero-content">
         <h1>Luxury Stay Experience</h1>
         <p>Comfort & Elegance in the Heart of the City</p>
-        <button className="btn">Book Now</button>
+        
+        {/* On click, the guest is sent to the Rooms page */}
+        <button className="btn" onClick={() => navigate('/rooms')}>
+          Book Rooms
+        </button>
       </div>
     </section>
   );

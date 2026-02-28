@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/rooms.css';
+import BookRoom from '../components/BookRoom';
 
 const roomsData = [
   {
@@ -26,19 +27,40 @@ const roomsData = [
 ];
 
 function Rooms() {
+  // Functional logic to scroll back up to the booking form
+  const scrollToBook = () => {
+    const element = document.getElementById('booking-section');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Fallback if ID is not found
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div className="rooms-page section">
+    <section className="rooms-page">
+      {/* The booking form is rendered here at the top */}
+      <BookRoom />
+
       <div className="container">
-        <h1 className="section-title">Our Accommodations</h1>
-        <p className="rooms-subtitle">Designed for ultimate relaxation and elegance.</p>
+        <header className="rooms-header">
+          <h1 className="section-title">Our Accommodations</h1>
+          <p className="rooms-subtitle">
+            Designed for ultimate relaxation and elegance at Hotel Rupam Inn.
+          </p>
+        </header>
 
         <div className="rooms-grid">
-          {roomsData.map(room => (
-            <div key={room.id} className="room-card">
+          {roomsData.map((room) => (
+            <article key={room.id} className="room-card">
               <div className="room-image">
-                <img src={room.image} alt={room.name} />
-                <span className="room-price">{room.price}/night</span>
+                <img src={room.image} alt={room.name} loading="lazy" />
+                <div className="room-price">
+                  <span>{room.price}</span>/night
+                </div>
               </div>
+
               <div className="room-info">
                 <h3>{room.name}</h3>
                 <ul className="room-features">
@@ -46,13 +68,22 @@ function Rooms() {
                     <li key={index}>{feat}</li>
                   ))}
                 </ul>
-                <button className="btn btn-outline">View Details</button>
+                
+                <div className="room-actions">
+                  {/* Clicking this now scrolls the user to the form above */}
+                  <button 
+                    className="btn btn-outline responsive-btn" 
+                    onClick={scrollToBook}
+                  >
+                    Book Now
+                  </button>
+                </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

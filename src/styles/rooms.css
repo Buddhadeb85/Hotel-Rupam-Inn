@@ -1,0 +1,162 @@
+/* Container and Section Spacing */
+.rooms-page {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #f01010;
+    margin-bottom: 10px;
+}
+
+.rooms-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+/* The Grid Layout */
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* Individual Room Card */
+.room-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Image Styling */
+.room-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.room-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.room-card:hover .room-image img {
+    transform: scale(1.1);
+}
+
+/* Price Badge */
+.room-price {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #d4af37; /* Gold theme */
+    color: white;
+    padding: 8px 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Room Info Text */
+.room-info {
+    padding: 25px;
+}
+
+.room-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.room-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.room-features li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+/* Dot bullet point */
+.room-features li::before {
+    content: "•";
+    color: #d4af37;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Outline Button */
+.btn-outline {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #d4af37;
+    background: transparent;
+    color: #d4af37;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #d4af37;
+    color: white;
+}
+.responsive-btn {
+  width: 100%; /* Full width on mobile for easy tapping */
+  padding: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* On Desktop, make it a normal sized button */
+@media (min-width: 768px) {
+  .responsive-btn {
+    width: auto;
+    padding: 10px 25px;
+  }
+}
+
+.responsive-btn:active {
+  transform: scale(0.95); /* Haptic feedback */
+  background-color: #d4af37;
+  color: white;
+}
+.room-actions {
+  position: relative;
+  z-index: 10; /* Ensures the button is "on top" and clickable */
+  margin-top: 15px;
+}
+
+.btn-outline {
+  display: block;
+  width: 100%; /* Makes the entire width clickable on mobile */
+  padding: 15px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* Removes the blue flash on mobile */
+}
